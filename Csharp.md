@@ -1,6 +1,6 @@
 # C# Features
 
-## Inherits List
+## Inherits List/IList  
 
 ```C#
 public class MyListClass : System.Collections.Generic.List<string>
@@ -19,6 +19,5 @@ public void MyMethod()
     {
         Debug.WriteLine(item);
     }
-
 }
 ```

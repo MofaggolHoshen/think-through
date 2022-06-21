@@ -4,6 +4,15 @@ Step by step debug NuGet package
 
 ## Step - 1 : Azre Pipeline
 
+Add to .csproj
+
+```XML
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+```
+
+## Step - 2 : Azre Pipeline
+
 Release pipeline is not woring. It's debug pipeline, here is the .yml
 
 ```yml
@@ -55,7 +64,7 @@ steps:
     PathtoPublish: '$(build.artifactstagingdirectory)/Release'
 ```
 
-## Step - 2: Set up Visual Studio
+## Step - 3 : Set up Visual Studio
 
 Setup azure artifact symbol swerver in Visual Studio
 

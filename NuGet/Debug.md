@@ -70,4 +70,4 @@ Setup azure artifact symbol swerver in Visual Studio
 
 Visual Studio -> Tools -> Debugging -> Symbols
 
-More Details: https://docs.microsoft.com/en-us/azure/devops/pipelines/artifacts/symbols?view=azure-devops#set-up-visual-studio
+More Details: <https://docs.microsoft.com/en-us/azure/devops/pipelines/artifacts/symbols?view=azure-devops#set-up-visual-studio>

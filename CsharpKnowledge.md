@@ -46,7 +46,21 @@ public class CustomValidationAttributeTest
         else
             return new ValidationResult("");
     }
+
+[TestMethod]
+ public void Test_Int_Range_0_To_1()
+    {
+        var attribute = new RangeAttribute(0, 1) { ErrorMessage = "PropertyName: {0}, MinValue: {1}, MaxValue: {2}" };
+
+        int model = 2;
+        var isValid = attribute.IsValid(model);
+        var result = attribute.GetValidationResult(model, new ValidationContext(model));
+            
+    }
 }
+
+
+ 
 ```
 
 ## Web Server(TestServer with Localhost)

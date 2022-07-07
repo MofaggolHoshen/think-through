@@ -101,3 +101,80 @@ public class PersonTest : HttpBase
         }
     }
 ```
+
+## DI with console
+
+```C#
+private ServiceProvider ServiceCollections()
+{
+   var Configuration = new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.Env.json", optional: true, reloadOnChange: true)
+                    .AddEnvironmentVariables()
+                   // .AddCommandLine(args)
+                    .Build();
+
+
+    var serviceProvider = new ServiceCollection()
+           .AddTransient<TwOneService>()
+           .AddScoped<StartupService>()
+           .AddSingleton<IConfiguration>(Configuration)
+           //.AddHttpContextAccessor()
+          .AddTransient<IHttpContextAccessor>((sp) =>
+           {
+               IHttpContextAccessor httpContextAccessor = new HttpContextAccessor();
+               httpContextAccessor.HttpContext = new DefaultHttpContext();
+               httpContextAccessor.HttpContext.Request.Headers.Add("key", "BlaBla");
+               return httpContextAccessor;
+           })
+          //.AddHttpClient()
+           .AddLogging()
+           .BuildServiceProvider();
+
+    return serviceProvider;
+}
+```
+
+Read more about DI container [here](https://stackoverflow.com/questions/62489732/blazor-which-is-better-inject-or-cascading-value/62502222#62502222)
+
+## Dropdownlist (DDL) with AJAX Call
+
+```JavaScript
+<script type="text/javascript">
+
+$(document).ready(function () {
+
+   $("#jBranch").on("change", function () {
+          
+     var selectedVlue = $(this).val();
+     if(selectedVlue)
+         {
+	   $.ajax({
+		url: ROOT +"branch/"+ id,
+		type: 'GET',
+		dataType: "json",
+		success: function(results)
+                       {
+			 var options = '<option>@SharedLocalizer["PleaseSelectText"]</option>';
+			 $.each(results, function(i, result)
+                          {
+                             var option = '<option value="'+result.id+'"';
+
+                            if(@Model.DepartmentId === result.id)
+                               option += 'selected="selected"';
+
+                            option +='>'+ result.name+'</option>';
+
+                            options += option;
+			 });
+				   $("#jDt").html(options);
+		     }
+		 }); 
+            }else{
+                var options = '<option>@SharedLocalizer["PleaseSelectText"]</option>';
+                $("#jDt").html(options);
+            }
+	});
+    });
+
+</script>
+```

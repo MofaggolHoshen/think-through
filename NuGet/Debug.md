@@ -21,19 +21,13 @@ Release pipeline is not woring. It's debug pipeline, here is the .yml
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-
 trigger: none
-
 
 pool:
   vmImage: 'windows-2022'
 
 variables:
   solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-
-
 
 steps:
 - task: NuGetToolInstaller@1
@@ -44,24 +38,38 @@ steps:
     nugetConfigPath: 'nuget.config'
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
+- task: DotNetCoreCLI@2
+  displayName: 'Build'
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:publishUrl="$(build.artifactstagingdirectory)" /p:PackageAsSingleFile=false /p:SkipInvalidConfigurations=true'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'build'
+    projects: '**/*.csproj'
 
-- task: ArchiveFiles@2
-  displayName: 'Archive task'
+- task: DotNetCoreCLI@2
+  displayName: 'Package'
   inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/'
-    includeRootFolder: false
-    archiveFile: '$(Build.ArtifactStagingDirectory)/Release/CardSetOnline$(Version).zip'
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    includesymbols: true
+    includesource: true
+    versioningScheme: 'off'
 
-- task: PublishBuildArtifacts@1    
-  displayName: 'Publish Artifact: drop'
+- task: PublishSymbols@2
+  displayName: "Index Symbols in azure devops"
   inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)/Release'
+    SearchPattern: '**/bin/**/*.pdb'
+    SymbolServerType: 'TeamServices'
+    TreatNotIndexedAsWarning: true
+    IndexSources: true
+    PublishSymbols: true
+    SymbolsArtifactName: 'Symbols_$(BuildConfiguration)'
+
+- task: NuGetCommand@2
+  displayName: 'Push NuGet'
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '82sed98-1336-456a-9007-1eder453/a4dddsse7-7dra-88991-8008-ccabababc'
 ```
 
 ## Step - 3 : Set up Visual Studio

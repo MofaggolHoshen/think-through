@@ -210,3 +210,15 @@ With required attribute, Property needs to be nullable for example
 ```
 
 On the other hand, if property is not nullable value type always be 0 in API, json serializer do it outof the box.
+
+## Copy File to Specific Directory Using Copy Task in csproj
+
+```XML
+  <Target Name="CopyDocumentationFiles" BeforeTargets="Build">
+    <ItemGroup>
+      <DocumentationFiles Include="%(Reference.RelativeDir)/Quipu.QpcGateWare.API.*.xml" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(DocumentationFiles)" DestinationFolder="$(OutputPath)" />
+  </Target>
+```

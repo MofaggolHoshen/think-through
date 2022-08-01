@@ -216,7 +216,7 @@ On the other hand, if property is not nullable value type always be 0 in API, js
 ```XML
   <Target Name="CopyDocumentationFiles" BeforeTargets="Build">
     <ItemGroup>
-      <DocumentationFiles Include="%(Reference.RelativeDir)/Quipu.QpcGateWare.API.*.xml" />
+      <DocumentationFiles Include="%(Reference.RelativeDir)/Abc.One.API.*.xml" />
     </ItemGroup>
 
     <Copy SourceFiles="@(DocumentationFiles)" DestinationFolder="$(OutputPath)" />

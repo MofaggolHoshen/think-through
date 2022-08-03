@@ -256,4 +256,3 @@ builder.Services.AddSwaggerGen(c =>
     xmlFiles.ForEach(xmlFile => c.IncludeXmlComments(xmlFile));
 });
 ```
-

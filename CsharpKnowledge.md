@@ -211,7 +211,7 @@ With required attribute, Property needs to be nullable for example
 
 On the other hand, if property is not nullable value type always be 0 in API, json serializer do it outof the box.
 
-## Copy File to Specific Directory Using Copy Task in csproj
+## Copy File (External Package XML Doc) to Specific Directory Using Copy Task in csproj
 
 ```XML
   <Target Name="CopyDocumentationFiles" BeforeTargets="Build">
@@ -222,3 +222,38 @@ On the other hand, if property is not nullable value type always be 0 in API, js
     <Copy SourceFiles="@(DocumentationFiles)" DestinationFolder="$(OutputPath)" />
   </Target>
 ```
+
+Copy to publish for use $(PublishDir).
+
+In azure build pipeline it's not working, not copying file to destination folder so use Copy File task -
+
+```YML
+- task: CopyFiles@2
+  displayName: 'Copy XML for swagger'
+  inputs:
+    SourceFolder: '$(UserProfile)\.nuget\packages'
+    Contents: '**\*ABC.CDF.API.AddOns*.xml'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+```
+
+I was copying XML documentation file for swagger, Copy File task will copy files with folder structure so we need to read all XML documentation files from sub folders while settingup/injecting swagger
+
+```C#
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1",
+        new OpenApiInfo
+        {
+            Title = "CardOnlineMaintenance",
+            Version = "v1"
+        }
+     );
+
+    //var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    //c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+
+    List<string> xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, "ABC.DEF.API.*.xml", SearchOption.AllDirectories).ToList();
+    xmlFiles.ForEach(xmlFile => c.IncludeXmlComments(xmlFile));
+});
+```
+

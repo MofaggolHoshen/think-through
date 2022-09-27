@@ -256,3 +256,7 @@ builder.Services.AddSwaggerGen(c =>
     xmlFiles.ForEach(xmlFile => c.IncludeXmlComments(xmlFile));
 });
 ```
+
+## String Syntax Attribute in .NET 7
+
+![String Syntax Attribute](Pictures/StringSyntaxAttriburte.JPG)

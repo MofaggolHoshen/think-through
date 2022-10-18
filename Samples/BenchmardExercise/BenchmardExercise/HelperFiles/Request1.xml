@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:omsi="http://schemas.compassplus.com/twcms/1.0/omsi.xsd">
+  <soapenv:Header>
+    <omsi:RequestHeader xmlns:omsi="http://schemas.compassplus.com/twcms/1.0/omsi.xsd">
+      <User>PCBUA_OMS</User>
+      <Cpimode>Sync</Cpimode>
+      <RType>Do</RType>
+      <Branch>22</Branch>
+      <Station>999</Station>
+    </omsi:RequestHeader>
+  </soapenv:Header>
+  <soapenv:Body>
+    <omsi:Request xmlns:omsi="http://schemas.compassplus.com/twcms/1.0/omsi.xsd">
+      <Request>
+        <Transaction>
+          <Link Channel="43" Address="+380679539870">
+            <Command Action="Update" OnlineProcessing="True"/>
+            <Card ExtId="810392"/>
+            <MessagingService Id="86417"/>
+            <Address>+380679539871</Address>
+          </Link>
+          <Link Channel="43" Address="+380679539870">
+            <Command Action="Update" OnlineProcessing="True"/>
+            <Card ExtId="810394"/>
+            <MessagingService Id="86417"/>
+            <Address>+380679539871</Address>
+          </Link>
+          <Link Channel="45" Address="+380679539870">
+            <Command Action="Update" OnlineProcessing="True"/>
+            <Card ExtId="810392"/>
+            <MessagingService Id="86418"/>
+            <Address>+380679539871</Address>
+          </Link>
+          <Link Channel="45" Address="+380679539870">
+            <Command Action="Update" OnlineProcessing="True"/>
+            <Card ExtId="810394"/>
+            <MessagingService Id="86418"/>
+            <Address>+380679539871</Address>
+          </Link>
+          <Link Channel="42" Address="+380679539870">
+            <Command Action="Update" OnlineProcessing="True"/>
+            <Card ExtId="810392"/>
+            <MessagingService Id="86419"/>
+            <Address>+380679539871</Address>
+          </Link>
+          <Link Channel="42" Address="+380679539870">
+            <Command Action="Update" OnlineProcessing="True"/>
+            <Card ExtId="810394"/>
+            <MessagingService Id="86419"/>
+            <Address>+380679539871</Address>
+          </Link>
+          <Person ExtId="111002990">
+            <Command Action="Update" OnlineProcessing="True" />
+            <MOBILEPHONE>+380679539871</MOBILEPHONE>
+          </Person>
+        </Transaction>
+      </Request>
+    </omsi:Request>
+  </soapenv:Body>
+</soapenv:Envelope>

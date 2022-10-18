@@ -1,0 +1,70 @@
+[
+  {
+    "DomainName": "Person",
+    "Properties": [
+      "BIRTHDATE",
+      "BIRTHLOCATION",
+      "EMAIL",
+      "EMPHIREDATE",
+      "EMPTITLE",
+      "ISVIP",
+      "MARITALSTATUS",
+      "MOBILEPHONE",
+      "Name",
+      "OCCUPATION",
+      "PERSONALCODE",
+      "PHONE",
+      "RESIDENT",
+      "SEX",
+      "STATEMENTLANG",
+      "TPN",
+      "TRANSNAME"
+    ]
+  },
+  {
+    "DomainName": "IDENTINFO",
+    "Properties": [
+      "QUESTION",
+      "ANSWER"
+    ]
+  },
+  {
+    "DomainName": "CUSTOMATTRIBUTES",
+    "Properties": [
+      "ATTRIBUTE"
+    ]
+  },
+  {
+    "DomainName": "DOCUMENT",
+    "Properties": [
+      "NO",
+      "ISSLOCATION",
+      "ISSLOCATIONDIV",
+      "ISSDATE",
+      "VALIDTO"
+    ]
+  },
+  {
+    "DomainName": "POSTALADDRESSES",
+    "Properties": [
+      "ZIPCODE",
+      "LINE",
+      "COUNTRY"
+    ]
+  },
+  {
+    "DomainName": "Card",
+    "Properties": [
+      "NAMEONCARD"
+    ]
+  },
+  {
+    "DomainName": "Link",
+    "Properties": [
+      "Address"
+    ],
+    "Attributes": [
+      "Channel"
+    ]
+  }
+]

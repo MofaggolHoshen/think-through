@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:omsi="http://schemas.compassplus.com/twcms/1.0/omsi.xsd">
+  <soapenv:Header>
+    <omsi:RequestHeader xmlns:omsi="http://schemas.compassplus.com/twcms/1.0/omsi.xsd">
+      <User>PCBUA_OMS</User>
+      <Cpimode>Sync</Cpimode>
+      <RType>Do</RType>
+      <Branch>22</Branch>
+      <Station>999</Station>
+    </omsi:RequestHeader>
+  </soapenv:Header>
+  <soapenv:Body>
+    <omsi:Request xmlns:omsi="http://schemas.compassplus.com/twcms/1.0/omsi.xsd">
+      <Request>
+        <Transaction>
+          <PERSON>
+            <Command Action="Create" OnlineProcessing="True" />
+            <EXTID>2022100501</EXTID>
+            <NAME>Gerhard1 Mueller1</NAME>
+            <SEX>m</SEX>
+            <PERSONALCODE>My code 1</PERSONALCODE>
+            <COUNTRYCITIZEN>100</COUNTRYCITIZEN>
+            <RESIDENT>True</RESIDENT>
+            <BIRTHDATE>19800101</BIRTHDATE>
+            <BIRTHLOCATION>Frankfurt / Germany 1</BIRTHLOCATION>
+            <OCCUPATION>1</OCCUPATION>
+            <MARITALSTATUS>1</MARITALSTATUS>
+            <EMPHIREDATE>20040101</EMPHIREDATE>
+            <TRANSNAME>cyri&amp;lcs1</TRANSNAME>
+            <VIP>True</VIP>
+            <EMAIL>test@test2.de</EMAIL>
+            <TPN>1111</TPN>
+            <MOBILEPHONE>111(1111)0111111111</MOBILEPHONE>
+            <PHONE>383(151)1701001000</PHONE>
+            <EMPTITLE>Emp title1</EMPTITLE>
+            <AFFILIANT>True</AFFILIANT>
+            <IDENTINFO>
+              <Command Action="Create" OnlineProcessing="True"/>
+              <QUESTION>Question</QUESTION>
+              <ANSWER>answer 1</ANSWER>
+            </IDENTINFO>
+            <POSTALADDRESS TYPE="1">
+              <Command Action="Update" OnlineProcessing="True"/>
+              <COUNTRY>1</COUNTRY>
+            </POSTALADDRESS>
+            <POSTALADDRESS TYPE="3">
+              <Command Action="Update" OnlineProcessing="True"/>
+              <ZIPCODE>1234556</ZIPCODE>
+              <LINE> Hamburg, Germany</LINE>
+              <COUNTRY>1</COUNTRY>
+            </POSTALADDRESS>
+            <Document>
+              <Command Action="Create" OnlineProcessing="True"/>
+              <Primary>True</Primary>
+              <NO>2022100501</NO>
+              <VALIDTO>20220101</VALIDTO>
+              <ISSDATE>20210101</ISSDATE>
+              <ISSLOCATION>Frankfurt 1</ISSLOCATION>
+              <ISSLOCATIONDIV>Div 1</ISSLOCATIONDIV>
+            </Document>
+          </PERSON>
+          <ACCOUNT>
+            <Command Action="Create" OnlineProcessing="True" />
+            <EXTNO>2022100501</EXTNO>
+            <NO>10002022100501</NO>
+            <TYPEFO>01</TYPEFO>
+            <STATUSFO>3</STATUSFO>
+            <TYPE>1</TYPE>
+            <CURRENCY>978</CURRENCY>
+            <Link>
+              <Command Action="Create" OnlineProcessing="True"/>
+              <Person ExtId="2022100501"/>
+            </Link>
+          </ACCOUNT>
+          <CARD>
+            <Command Action="Create" OnlineProcessing="True" ResObjectInfoType="FullInfo" />
+            <EXTID>2022100501</EXTID>
+            <PRODUCTID>4584</PRODUCTID>
+            <ACTIVEDATE>20220601</ACTIVEDATE>
+            <EXPDATE>20221231</EXPDATE>
+            <ISSUEPRIORITY>1</ISSUEPRIORITY>
+            <FINPROFILE>2</FINPROFILE>
+            <NAMEONCARD>Mr. Mueller</NAMEONCARD>
+            <STATUSFO>1</STATUSFO>
+            <LIMITGRP>1</LIMITGRP>
+            <LIMITCURRENCY>980</LIMITCURRENCY>
+            <MBR>0</MBR>
+            <BRANCHPART>101</BRANCHPART>
+            <CustomAttributes>
+              <Attribute id="CW_ID">20221005</Attribute>
+              <Attribute id="CW_PACKAGE">Package</Attribute>
+              <Attribute id="CW_COMPANYNAME">Company Name</Attribute>
+              <Attribute id="CW_DISTRICT">District</Attribute>
+            </CustomAttributes>
+            <Link>
+              <Command Action="Create" OnlineProcessing="True"/>
+              <Status>3</Status>
+              <Account ExtNo="2022100501"></Account>
+            </Link>
+            <Link>
+              <Command Action="Create" OnlineProcessing="True"/>
+              <Person ExtId="2022100501"/>
+            </Link>
+          </CARD>
+          <MessagingService>
+            <Command Action="Create"/>
+            <SCHEME>122</SCHEME>
+            <ACTIVE>True</ACTIVE>
+            <STARTDATE>20221005</STARTDATE>
+            <Link>
+              <Command Action="Create" OnlineProcessing="True"/>
+              <Channel>43</Channel>
+              <Address>111(1111)0111111111</Address>
+              <UseForDynamicAuth>True</UseForDynamicAuth>
+              <Active>True</Active>
+              <UseForExternalAuth>False</UseForExternalAuth>
+              <DisableBroadcasting>False</DisableBroadcasting>
+              <Card ExtID="2022100501"/>
+            </Link>
+            <Link>
+              <Command Action="Create"/>
+              <Person ExtID="2022100501"/>
+            </Link>
+          </MessagingService>
+          <MessagingService>
+            <Command Action="Create"/>
+            <SCHEME>123</SCHEME>
+            <ACTIVE>True</ACTIVE>
+            <STARTDATE>20221005</STARTDATE>
+            <Link>
+              <Command Action="Create" OnlineProcessing="True"/>
+              <Channel>45</Channel>
+              <Address>111(1111)0111111111</Address>
+              <UseForDynamicAuth>False</UseForDynamicAuth>
+              <Active>True</Active>
+              <UseForExternalAuth>False</UseForExternalAuth>
+              <DisableBroadcasting>False</DisableBroadcasting>
+              <Card ExtID="2022100501"/>
+            </Link>
+            <Link>
+              <Command Action="Create"/>
+              <Person ExtID="2022100501"/>
+            </Link>
+          </MessagingService>
+          <MessagingService>
+            <Command Action="Create"/>
+            <SCHEME>80</SCHEME>
+            <ACTIVE>True</ACTIVE>
+            <STARTDATE>20221005</STARTDATE>
+            <Link>
+              <Command Action="Create" OnlineProcessing="True"/>
+              <Channel>42</Channel>
+              <Address>111(1111)0111111111</Address>
+              <UseForDynamicAuth>False</UseForDynamicAuth>
+              <Active>True</Active>
+              <UseForExternalAuth>False</UseForExternalAuth>
+              <DisableBroadcasting>False</DisableBroadcasting>
+              <Card ExtID="2022100501"/>
+            </Link>
+            <Link>
+              <Command Action="Create"/>
+              <Person ExtID="2022100501"/>
+            </Link>
+          </MessagingService>
+          <MessagingService>
+            <Command Action="Create"/>
+            <SCHEME>124</SCHEME>
+            <ACTIVE>True</ACTIVE>
+            <STARTDATE>20221005</STARTDATE>
+            <Link>
+              <Command Action="Create" OnlineProcessing="True"/>
+              <Channel>44</Channel>
+              <Address>0800500990</Address>
+              <UseForDynamicAuth>False</UseForDynamicAuth>
+              <Active>True</Active>
+              <UseForExternalAuth>False</UseForExternalAuth>
+              <DisableBroadcasting>False</DisableBroadcasting>
+              <Card ExtID="2022100501"/>
+            </Link>
+            <Link>
+              <Command Action="Create"/>
+              <Person ExtID="2022100501"/>
+            </Link>
+          </MessagingService>
+        </Transaction>
+      </Request>
+    </omsi:Request>
+  </soapenv:Body>
+</soapenv:Envelope>

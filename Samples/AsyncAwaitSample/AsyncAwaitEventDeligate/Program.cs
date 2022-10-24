@@ -1,9 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿namespace AsyncAwaitEventDeligate;
 
-public class Program
+/*
+ *  https://www.youtube.com/watch?v=el-kKK-7SBU
+ * 
+ */
+
+internal class Program
 {
-    public static async Task Main(string[] args)
+    static async Task Main(string[] args)
     {
         var person = new Person
         {
@@ -41,7 +45,6 @@ public class Program
         });
 
         Console.WriteLine("Finished");
-
     }
 
     public static async Task<int> GetTaskAsync()
@@ -58,29 +61,5 @@ public class Program
         Console.WriteLine($"HttpRequest function.");
 
         return 10;
-    }
-}
-
-public class Person
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Email { get; set; }
-
-    public Func<string, Task> OnEmailChanged;
-
-    public async Task Update(Person person)
-    {
-        this.Id = person.Id;
-
-        if (person.Name != this.Name)
-            this.Name = person.Name;
-
-        if (person.Email != this.Email)
-        {
-            await OnEmailChanged.Invoke(person.Email);
-            this.Email = person.Email;
-
-        }
     }
 }

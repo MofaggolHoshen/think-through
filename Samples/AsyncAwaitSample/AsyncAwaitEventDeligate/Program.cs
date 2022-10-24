@@ -2,6 +2,9 @@
 
 /*
  *  https://www.youtube.com/watch?v=el-kKK-7SBU
+ *  https://www.appsloveworld.com/csharp/100/24/how-to-await-on-async-delegate
+ *  https://stackoverflow.com/questions/29155/what-are-the-differences-between-delegates-and-events
+ *  https://learn.microsoft.com/en-us/shows/three-essential-tips-for-async/tip-1-async-void-top-level-event-handlers-only
  * 
  */
 

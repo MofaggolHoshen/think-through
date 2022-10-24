@@ -22,7 +22,9 @@ public class Person
 
         if (person.Email != this.Email)
         {
-            await OnEmailChanged.Invoke(person.Email);
+            if (this.OnEmailChanged != null)
+                await OnEmailChanged.Invoke(person.Email);
+
             this.Email = person.Email;
 
         }

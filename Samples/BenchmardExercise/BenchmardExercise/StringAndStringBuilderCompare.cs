@@ -5,43 +5,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BenchmardExercise
+namespace BenchmardExercise;
+
+[MemoryDiagnoser]
+public class StringAndStringBuilderCompare
 {
-    [MemoryDiagnoser]
-    public class StringAndStringBuilderCompare
+    [Benchmark]
+    public string Str()
     {
-        [Benchmark]
-        public string Str()
+        string str = "";
+        for (int i = 0; i < 1000; i++)
         {
-            string str = "";
-            for (int i = 0; i < 1000; i++)
-            {
-                str = str + i;
-            }
-
-            return str;
-        }
-        [Benchmark]
-        public void Str1()
-        {
-
-            for (int i = 0; i < 1000; i++)
-            {
-                Person person = new(i, i.ToString());
-            }
+            str = str + i;
         }
 
-        [Benchmark]
-        public string StrBuilder()
+        return str;
+    }
+    [Benchmark]
+    public void Str1()
+    {
+
+        for (int i = 0; i < 1000; i++)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-
-            for (int i = 0; i < 1000; i++)
-            {
-                stringBuilder.Append(i);
-            }
-
-            return stringBuilder.ToString();
+            StrAndStrBuidler person = new(i, i.ToString());
         }
+    }
+
+    [Benchmark]
+    public string StrBuilder()
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < 1000; i++)
+        {
+            stringBuilder.Append(i);
+        }
+
+        return stringBuilder.ToString();
+    }
+}
+
+public class StrAndStrBuidler
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public StrAndStrBuidler(int id, string name)
+    {
+        Id=id;
+        Name=name;
     }
 }

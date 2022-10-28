@@ -1,0 +1,19 @@
+{
+  "ReflectionSettings": [
+    {
+      "DomainName": "ReflecClassA",
+      "Properties": [
+        "Name",
+        "ReflecClassB"
+      ],
+      "PropertyClass": [
+        {
+          "DomainName": "ReflecClassB",
+          "Properties": [
+            "Name"
+          ]
+        }
+      ]
+    }
+  ]
+}

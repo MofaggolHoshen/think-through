@@ -13,12 +13,17 @@ public class Person
 
     public event Func<string, Task> OnEmailChanged;
 
+   // public event EventHandler<string> OnNameChanged;
+
     public async Task Update(Person person)
     {
         this.Id = person.Id;
 
         if (person.Name != this.Name)
+        {
             this.Name = person.Name;
+           // OnNameChanged.Invoke(this, this.Name);
+        }
 
         if (person.Email != this.Email)
         {

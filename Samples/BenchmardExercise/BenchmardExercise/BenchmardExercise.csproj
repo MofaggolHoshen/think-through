@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SenariosTest\SenariosTest.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="HelperFiles\Anonymizationettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

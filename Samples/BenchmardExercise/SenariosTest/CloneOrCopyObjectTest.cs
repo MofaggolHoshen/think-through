@@ -61,6 +61,7 @@ public class CloneOrCopyObjectTest
 
         var clonedObj = cloneOrCopObj.Clone();
         clonedObj.Name = "Mofaggol Ibne Jolil";
+        clonedObj.Address.City = "Blo";
 
         return new Tuple<CloneOrCopyObj3, CloneOrCopyObj3>(cloneOrCopObj, clonedObj);
     }

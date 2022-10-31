@@ -1,5 +1,6 @@
 ﻿using BenchmardExercise;
 using BenchmarkDotNet.Running;
+using SenariosTest;
 
 //BenchmarkRunner.Run<ArgumentException>();
 
@@ -12,3 +13,7 @@ using BenchmarkDotNet.Running;
 
 //BenchmarkRunner.Run<CloneAndCopyObject>();
 BenchmarkRunner.Run<ReflectionBenchmark>();
+
+var cloneOrCopyObjectTest = new CloneOrCopyObjectTest();
+
+cloneOrCopyObjectTest.CloneHelper();

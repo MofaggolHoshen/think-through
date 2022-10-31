@@ -115,3 +115,23 @@ public class CloneOrCopyObj4
         return (CloneOrCopyObj4)MemberwiseClone();
     }
 }
+
+public class CloneOrCopyObj5
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public List<CloneOrCopyObj2> Addresses { get; set; }
+
+    public object Clone()
+    {
+        var clonedObj = (CloneOrCopyObj5)MemberwiseClone();
+        clonedObj.Addresses = new List<CloneOrCopyObj2>();
+
+        for (int i = 0; i < this.Addresses?.Count; i++)
+        {
+            clonedObj.Addresses.Add((CloneOrCopyObj2)this.Addresses[i].Clone());
+        }
+        
+        return clonedObj;
+    }
+}

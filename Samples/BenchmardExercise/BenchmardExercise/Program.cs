@@ -10,4 +10,5 @@ using BenchmarkDotNet.Running;
 //TwoStringsCompare twoStringsCompare= new TwoStringsCompare();
 //twoStringsCompare.DefaultEqual();
 
-BenchmarkRunner.Run<CloneAndCopyObject>();
+//BenchmarkRunner.Run<CloneAndCopyObject>();
+BenchmarkRunner.Run<ReflectionBenchmark>();

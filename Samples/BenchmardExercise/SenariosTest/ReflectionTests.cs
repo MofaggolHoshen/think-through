@@ -16,7 +16,12 @@ public class ReflectionTests
         //    JsonNode jsonNode = JsonNode.Parse(File.ReadAllText("Helpers/NodePersing.json"));
     }
     [TestMethod]
-    public void TestMethod1()
+    public void AnonymizationTest()
+    {
+        AnonymizationHelper();
+    }
+
+    public ReflecClassA AnonymizationHelper()
     {
         var setting = new List<ReflectionSetting>
         {
@@ -29,18 +34,18 @@ public class ReflectionTests
                 nameof(ReflecClassA.Names),
                 nameof(ReflecClassA.ReflecClassBs)
                 }
-                //,
-                //PropertyClasses = new List<ReflectionSetting>
-                //{
-                //    new ReflectionSetting
-                //    {
-                //        DomainName = nameof(ReflecClassB),
-                //        Properties = new List<string>
-                //        {
-                //            nameof(ReflecClassB.Name)
-                //        }
-                //    }
-                //}
+                ,
+                PropertyClasses = new List<ReflectionSetting>
+                {
+                    new ReflectionSetting
+                    {
+                        DomainName = nameof(ReflecClassB),
+                        Properties = new List<string>
+                        {
+                            nameof(ReflecClassB.Name)
+                        }
+                    }
+                }
             },
             new ReflectionSetting
                     {
@@ -76,6 +81,7 @@ public class ReflectionTests
 
         var ano = Anonymized(obj, setting);
 
+        return ano;
     }
 
 

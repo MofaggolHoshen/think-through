@@ -261,4 +261,51 @@ builder.Services.AddSwaggerGen(c =>
 
 ![String Syntax Attribute](Pictures/StringSyntaxAttriburte.JPG)
 
-This from vscode 
+This from vscode  
+
+## Custom Tag in .csproj
+
+```XML
+<PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.0.1</Version>
+    <VersionDate>2023-01-27</VersionDate>
+</PropertyGroup>
+<ItemGroup>
+    <AssemblyAttribute Include="Abc.Efg.API.Helper.VersionDateAttribute">
+      <_Parameter1>$(VersionDate)</_Parameter1>
+    </AssemblyAttribute>
+ </ItemGroup>
+```
+
+```C#
+
+// Attribute to read date from .csproj
+namespace Abc.Efg.API.Helper
+{
+    [System.AttributeUsage(System.AttributeTargets.Assembly, Inherited = false, AllowMultiple = false)]
+    sealed class VersionDateAttribute : System.Attribute
+    {
+        public DateTime Date { get; }
+        public VersionDateAttribute(string versionDate)
+        {
+            if(DateTime.TryParse(versionDate, out DateTime date))
+                Date = date;
+        }
+    }
+}
+
+// Reading values using System.Reflection
+public void GetVersion()
+    {
+        var version = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+        
+        DateTime versionDate = DateTime.MinValue;
+
+        if (Assembly.GetEntryAssembly()?.GetCustomAttribute<VersionDateAttribute>() is VersionDateAttribute versionAtt)
+            versionDate = versionAtt.Date;
+    }
+
+```

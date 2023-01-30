@@ -30,9 +30,14 @@ public class ReflectionTests
                 DomainName = nameof(ReflecClassA),
                 Properties = new List<string>
                 {
-                //nameof(ReflecClassA.Id),
+                nameof(ReflecClassA.Id),
+                nameof(ReflecClassA.No),
                 nameof(ReflecClassA.Names),
-                nameof(ReflecClassA.ReflecClassBs)
+                nameof(ReflecClassA.ReflecClassBs),
+                nameof(ReflecClassA.Date),
+                nameof(ReflecClassA.DatetimeNull),
+                nameof(ReflecClassA.Dated),
+                nameof(ReflecClassA.TestEnum)
                 }
                 ,
                 PropertyClasses = new List<ReflectionSetting>
@@ -46,21 +51,13 @@ public class ReflectionTests
                         }
                     }
                 }
-            },
-            new ReflectionSetting
-                    {
-                        DomainName = nameof(ReflecClassB),
-                        Properties = new List<string>
-                        {
-                            nameof(ReflecClassB.Name),
-                            nameof(ReflecClassB.Self)
-                        }
-                    }
+            }
         };
 
         var obj = new ReflecClassA
         {
-            //    Id = 10,
+            Id = 10,
+            No = 20,
             ReflecClassBs = new() {
                 new ReflecClassB{
                 Id = 20,
@@ -105,7 +102,11 @@ public class ReflectionTests
 
                 if (propertyType.IsValueType)
                 {
-                    propertiesOfT[i].SetValue(fromAnonymizeObject, 0);
+                    var nullableType = Nullable.GetUnderlyingType(propertyType);
+
+                    var defaultValue = nullableType != null ? Activator.CreateInstance(nullableType) : Activator.CreateInstance(propertyType);
+
+                    propertiesOfT[i].SetValue(fromAnonymizeObject, defaultValue);
                 }
                 else if (propertyType.IsClass && propertyType.IsGenericType == false && propertyType.IsArray == false)
                 {
@@ -185,7 +186,20 @@ public class ReflecClassA
     public int Id { get; set; }
     public List<string> Names { get; set; }
 
+    public int? No { get; set; }
+    public DateTime? DatetimeNull { get; set; }
+    public DateTime Date { get; set; }
+    public decimal Dated { get; set; }
+    public TestEnum TestEnum { get; set; }
+
+
     public List<ReflecClassB> ReflecClassBs { get; set; }
+}
+
+public enum TestEnum
+{
+    Best,
+    Nice
 }
 
 public class ReflecClassB

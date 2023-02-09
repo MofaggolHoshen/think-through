@@ -109,6 +109,7 @@ public class PersonTest : HttpBase
  * NuGet Packages
  * Microsoft.Extensions.Configuration
  * Microsoft.Extensions.Configuration.Json
+ * Microsoft.Extensions.Logging
  */
 private ServiceProvider ServiceCollections()
 {

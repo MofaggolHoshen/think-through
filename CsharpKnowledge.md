@@ -105,6 +105,11 @@ public class PersonTest : HttpBase
 ## DI with console
 
 ```C#
+/*
+ * NuGet Packages
+ * Microsoft.Extensions.Configuration
+ * Microsoft.Extensions.Configuration.Json
+ */
 private ServiceProvider ServiceCollections()
 {
    var Configuration = new ConfigurationBuilder()

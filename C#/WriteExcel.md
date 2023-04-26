@@ -39,7 +39,7 @@ using DocumentFormat.OpenXml.Spreadsheet;
                     client.Credentials = new NetworkCredential("apikey", "apikey");
 
                     var message = new MailMessage("mofaggol.hoshen@abc.com", "noreply@abv.com", "Excel file", "Please see the attached Excel file.");
-
+                    //MediaTypeNames.Application.Octet
                     var attachment = new Attachment(memoryStream, "example.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
                     message.Attachments.Add(attachment);
 

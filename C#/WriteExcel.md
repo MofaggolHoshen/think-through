@@ -1,5 +1,8 @@
+## Write Excel file and send email
 ```C#
-
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
         public static async Task Main()
         {
             // Create a new Excel file

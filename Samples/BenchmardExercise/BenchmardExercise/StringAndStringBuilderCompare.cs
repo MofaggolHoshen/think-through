@@ -21,6 +21,19 @@ public class StringAndStringBuilderCompare
 
         return str;
     }
+
+    [Benchmark]
+    public string StrConcat()
+    {
+        string str = "";
+        for (int i = 0; i < 1000; i++)
+        {
+            str = $"{i}";
+        }
+
+        return str;
+    }
+
     [Benchmark]
     public void Str1()
     {
@@ -42,6 +55,18 @@ public class StringAndStringBuilderCompare
         }
 
         return stringBuilder.ToString();
+    }
+
+    [Benchmark]
+    public List<string> StrList()
+    {
+        var list = new List<string>();
+        for (int i = 0; i < 1000; i++)
+        {
+            list.Add(i.ToString());
+        }
+
+        return list;
     }
 }
 

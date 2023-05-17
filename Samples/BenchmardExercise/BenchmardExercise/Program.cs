@@ -12,8 +12,10 @@ using SenariosTest;
 //twoStringsCompare.DefaultEqual();
 
 //BenchmarkRunner.Run<CloneAndCopyObject>();
-BenchmarkRunner.Run<ReflectionBenchmark>();
+//BenchmarkRunner.Run<ReflectionBenchmark>();
 
-var cloneOrCopyObjectTest = new CloneOrCopyObjectTest();
+//var cloneOrCopyObjectTest = new CloneOrCopyObjectTest();
 
-cloneOrCopyObjectTest.CloneHelper();
+//cloneOrCopyObjectTest.CloneHelper();
+
+BenchmarkRunner.Run<StringAndStringBuilderCompare>();

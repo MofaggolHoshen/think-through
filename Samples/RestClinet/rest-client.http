@@ -1,0 +1,15 @@
+
+GET https://grpwqpcgate.azure-api.net/cardsetonlineukr/version
+ocp-apim-subscription-key: 237ca81800f34e2f978fa1d218397e84
+###
+
+
+PATCH  {{host}}/cardprofile
+content-type: application/json
+
+< ./input.json
+###
+
+GET {{host}}/version
+###
+

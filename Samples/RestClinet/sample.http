@@ -1,0 +1,22 @@
+### Request ###
+GET https://api.example.com/users
+
+### Response ###
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "janesmith@example.com"
+    }
+  ]
+}
+

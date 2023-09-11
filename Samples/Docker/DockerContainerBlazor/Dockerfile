@@ -7,6 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
+COPY ["nuget.config", "."]
 COPY ["DockerContainerBlazor/DockerContainerBlazor.csproj", "DockerContainerBlazor/"]
 RUN dotnet restore "DockerContainerBlazor/DockerContainerBlazor.csproj"
 COPY . .

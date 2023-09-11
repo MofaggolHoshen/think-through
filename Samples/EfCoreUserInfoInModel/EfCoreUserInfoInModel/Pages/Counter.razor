@@ -1,0 +1,37 @@
+﻿@page "/counter"
+@using EfCoreUserInfoInModel.Data;
+@using EfCoreUserInfoInModel.Models;
+@attribute [Authorize]
+@inject ApplicationDbContext context;
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<button class="btn btn-primary" @onclick="InstituteAdd">Add</button>
+
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        var ins = context.Institutions.ToList();
+
+        currentCount++;
+    }
+
+    private void InstituteAdd()
+    {
+        context.Institutions.Add(new Institution
+            {
+                Name = "Onde"
+            });
+
+        context.SaveChanges();
+    }
+}

@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Student{
-    public:
+class Student
+{
+public:
     string nm;
     int cls;
     char s;
@@ -10,19 +11,19 @@ class Student{
 };
 int main()
 {
-    
-   int t;
-   cin >> t;
-   Student s[t];
-   for (int i = 0; i < t; i++)
-   {
+
+    int t;
+    cin >> t;
+    Student s[t];
+    for (int i = 0; i < t; i++)
+    {
         cin >> s[i].nm >> s[i].cls >> s[i].s >> s[i].id;
-   }
+    }
 
-   int f = 0;
-   int b = t-1;
+    int f = 0;
+    int b = t - 1;
 
-    while(f < b)
+    while (f < b)
     {
         char temp = s[f].s;
         s[f].s = s[b].s;
@@ -32,10 +33,10 @@ int main()
         b--;
     }
 
-   for (int i = 0; i < t; i++)
-   {
-        cout << s[i].nm << " " <<s[i].cls << " "<<s[i].s << " "<< s[i].id <<endl;
-   }
-   
+    for (int i = 0; i < t; i++)
+    {
+        cout << s[i].nm << " " << s[i].cls << " " << s[i].s << " " << s[i].id << endl;
+    }
+
     return 0;
 }

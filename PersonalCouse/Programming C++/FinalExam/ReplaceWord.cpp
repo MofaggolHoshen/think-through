@@ -15,11 +15,10 @@ int main()
         while (s.find(x) != -1)
         {
             int index = s.find(x);
-            
+
             int len = x.length();
 
             s.replace(index, len, "#");
-            
         }
 
         cout << s << endl;

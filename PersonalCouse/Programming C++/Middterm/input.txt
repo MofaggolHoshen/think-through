@@ -1,0 +1,13 @@
+4
+1 sakib A 96
+2 rakib D 96
+3 akib C 50
+1 sakib A 96
+2 rakib D 99
+3 akib C 99
+1 sakib A 50
+2 rakib D 40
+3 akib C 50
+1 sakib A 50
+2 rakib D 50
+3 akib C 50

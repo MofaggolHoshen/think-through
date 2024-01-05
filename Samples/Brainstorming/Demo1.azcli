@@ -1,0 +1,1 @@
+az boards query --wiql "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.AssignedTo], [System.State] FROM workitems WHERE [System.State] != 'Closed' AND [System.AssignedTo] = 'mofaggol.hoshen@quipu.de' ORDER BY [System.Id]" --project EmployeeDatabase -o table

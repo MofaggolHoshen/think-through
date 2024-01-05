@@ -1,0 +1,4 @@
+# List of subscriptions
+az account list -o table
+
+az boards query --wiql "Select [System.Id], [System.Title], [System.State] From WorkItems Where [System.WorkItemType] = 'Bug' AND [System.State] = 'New' ORDER BY [System.CreatedDate] DESC" --project EmployeeDatabase -o table
